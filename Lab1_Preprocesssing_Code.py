@@ -81,14 +81,17 @@ categorical_vars = ['ad_type', 'l1', 'l2', 'l3', 'l4', 'l5', 'l6', 'currency', '
 string_vars = ['id', 'title', 'description']
 time_vars = ['start_date', 'end_date', 'created_on']
 
-# Cast attributes as specific data type and fill in missing values
-# Replace missing values for each attribute set
-combineddf = combineddf.replace(to_replace = "9999-12-31", value = np.nan)
-combineddf.isna().sum()
 
-# Create a new dataframe with all missing values as -1 (this is done to allow the datatypes to be changed)
-combineddf = combineddf.replace(to_replace= np.nan, value = -1)
-combineddf = combineddf.replace(to_replace = "9999-12-31", value = -1)
+# Display missing data counts by attribute
+missing_data = combineddf.replace(to_replace = "9999-12-31", value = np.nan)
+missing_data.isna().sum()
+
+# Create a dataframe with  missing values as -1 or 0 (this is done to allow the datatypes to be changed)
+combineddf[ordinal_vars] = combineddf[ordinal_vars].replace(to_replace = np.nan, value = -1)
+combineddf[time_vars] = combineddf[time_vars].replace(to_replace = "9999-12-31", value = 0)
+
+#combineddf = combineddf.replace(to_replace= np.nan, value = -1)
+#combineddf = combineddf.replace(to_replace = "9999-12-31", value = -1)
 
 # Change data types
 combineddf[ordinal_vars] = combineddf[ordinal_vars].astype(np.int64)
@@ -104,15 +107,19 @@ for var in categorical_vars:
     print(var, ' : ', combineddf[var].unique())
     
 # Replace and combine equivalent factor levels and replace -1 with np.nan
-combineddf = combineddf.replace(to_replace = -1, value = np.nan)
+#combineddf = combineddf.replace(to_replace = -1, value = np.nan)
 combineddf = combineddf.replace(to_replace = 'Estados Unidos de América', value = 'Estado Unidos')
 
 # Output new dataset: missing values are nan
 combineddf.to_csv("Combined_Dataset.csv", sep = ',')
 
 
+######################################################################################################
+# Address Missing Values #
 
-
+combineddf.isna().sum()
+combineddf.info()
+# 
 
 
 # Output descriptive statistics
