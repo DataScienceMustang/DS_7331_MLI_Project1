@@ -1,0 +1,2 @@
+mean_fit_time,std_fit_time,mean_score_time,std_score_time,param_REG__n_neighbors,param_REG__p,param_REG__weights,params,split0_test_score,split1_test_score,split2_test_score,split3_test_score,split4_test_score,mean_test_score,std_test_score,rank_test_score
+125.68671875,12.431918896200337,6.681667137145996,1.590097368869519,75,1,distance,"{'REG__n_neighbors': 75, 'REG__p': 1, 'REG__weights': 'distance'}",-0.32586898623270094,-0.32685926074048655,-0.3220821350068869,-0.44175876911499107,-0.5836617530876518,-0.4000461808365435,0.1023636579148684,1

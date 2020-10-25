@@ -1,0 +1,2 @@
+mean_fit_time,std_fit_time,mean_score_time,std_score_time,param_KNN__n_neighbors,param_KNN__weights,params,split0_test_score,split1_test_score,split2_test_score,split3_test_score,split4_test_score,mean_test_score,std_test_score,rank_test_score
+131.33115549087523,10.730226903526617,7.954000854492188,2.355542818429338,21,distance,"{'KNN__n_neighbors': 21, 'KNN__weights': 'distance'}",0.876295218071055,0.8628928783222816,0.8671842147824681,0.8103920469248684,0.7496765289398775,0.8332881774081102,0.04772866175196316,1
